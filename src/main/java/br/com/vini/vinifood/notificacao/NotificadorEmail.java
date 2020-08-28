@@ -1,5 +1,6 @@
 package br.com.vini.vinifood.notificacao;
 
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
 import br.com.vini.vinifood.annotation.TipoDoNotificador;
@@ -7,6 +8,7 @@ import br.com.vini.vinifood.enums.NivelUrgencia;
 import br.com.vini.vinifood.modelo.Cliente;
 
 @Component
+@Profile("prod")
 @TipoDoNotificador(NivelUrgencia.NORMAL)
 public class NotificadorEmail implements Notificador {
 	
