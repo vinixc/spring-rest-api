@@ -7,7 +7,7 @@ import br.com.vini.vinifood.notificacao.Notificador;
 
 public class AtivacaoClienteService {
 
-	@Autowired
+	@Autowired(required = false)
 	private Notificador notificador;
 	
 	public AtivacaoClienteService(Notificador notificador) {
@@ -19,8 +19,11 @@ public class AtivacaoClienteService {
 
 	public void ativar(Cliente cliente) {
 		cliente.ativar();
-
-		notificador.notificar(cliente, "Seu cadastro no sistema está ativo!");
+		
+		if(notificador != null)
+			notificador.notificar(cliente, "Seu cadastro no sistema está ativo!");
+		else
+			System.out.println("Não existe notificador, mas cliente foi ativado");
 	}
 	
 }
