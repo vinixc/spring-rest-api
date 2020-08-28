@@ -1,15 +1,17 @@
 package br.com.vini.vinifood.notificacao;
 
+import org.springframework.context.annotation.Primary;
+import org.springframework.stereotype.Component;
+
 import br.com.vini.vinifood.modelo.Cliente;
 
+@Component
 public class NotificadorEmail implements Notificador {
 	
 	private boolean caixaAlta;
-	private String hostServidorSmtp;
+	private String hostServidorSmtp = "smtp.vini.com.br";
 	
-	public NotificadorEmail(String hostServidorSmtp) {
-		this.hostServidorSmtp = hostServidorSmtp;
-		System.out.println("NotificadorEmail");
+	public NotificadorEmail() {
 	}
 	
 	@Override
