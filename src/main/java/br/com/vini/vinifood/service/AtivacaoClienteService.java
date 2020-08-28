@@ -1,32 +1,22 @@
 package br.com.vini.vinifood.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationEventPublisher;
+import org.springframework.stereotype.Component;
 
-import br.com.vini.vinifood.annotation.TipoDoNotificador;
-import br.com.vini.vinifood.enums.NivelUrgencia;
+import br.com.vini.vinifood.event.ClienteAtivadoEvent;
 import br.com.vini.vinifood.modelo.Cliente;
-import br.com.vini.vinifood.notificacao.Notificador;
 
-//@Component
+@Component
 public class AtivacaoClienteService {
-
+	
 	@Autowired
-	@TipoDoNotificador(NivelUrgencia.NORMAL)
-	private Notificador notificador;
+	private ApplicationEventPublisher eventPublisher;
 	
-//	@PostConstruct
-	public void init() {
-		System.out.println("AtivacaoClienteService: INIT");
-	}
-	
-//	@PreDestroy
-	public void destroy() {
-		System.out.println("AtivacaoClienteService: DESTROY");
-	}
-
 	public void ativar(Cliente cliente) {
 		cliente.ativar();
 		
-		notificador.notificar(cliente, "Seu cadastro no sistema está ativo!");
+		//dizer para o container que o cliente esta ativo neste momento.
+		eventPublisher.publishEvent(new ClienteAtivadoEvent(cliente));
 	}
 }
