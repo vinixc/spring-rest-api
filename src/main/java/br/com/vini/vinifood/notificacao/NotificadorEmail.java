@@ -1,10 +1,11 @@
 package br.com.vini.vinifood.notificacao;
 
-import org.springframework.context.annotation.Primary;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import br.com.vini.vinifood.modelo.Cliente;
 
+@Qualifier("normal")
 @Component
 public class NotificadorEmail implements Notificador {
 	

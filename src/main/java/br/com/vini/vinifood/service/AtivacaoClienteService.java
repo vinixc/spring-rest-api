@@ -1,6 +1,7 @@
 package br.com.vini.vinifood.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import br.com.vini.vinifood.modelo.Cliente;
@@ -10,6 +11,7 @@ import br.com.vini.vinifood.notificacao.Notificador;
 public class AtivacaoClienteService {
 
 	@Autowired
+	@Qualifier("urgente")
 	private Notificador notificador;
 
 	public void ativar(Cliente cliente) {
