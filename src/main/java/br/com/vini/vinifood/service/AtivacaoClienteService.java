@@ -1,17 +1,13 @@
 package br.com.vini.vinifood.service;
 
-import org.springframework.stereotype.Component;
-
 import br.com.vini.vinifood.modelo.Cliente;
 import br.com.vini.vinifood.notificacao.Notificador;
-import br.com.vini.vinifood.notificacao.NotificadorEmail;
 
-@Component
 public class AtivacaoClienteService {
 
 	private Notificador notificador;
 	
-	public AtivacaoClienteService(NotificadorEmail notificador) {
+	public AtivacaoClienteService(Notificador notificador) {
 		this.notificador = notificador;
 		
 		System.out.println("AtivacaoClienteService: " + notificador);
