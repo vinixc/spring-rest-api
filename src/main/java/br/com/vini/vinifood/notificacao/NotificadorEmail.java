@@ -1,6 +1,6 @@
 package br.com.vini.vinifood.notificacao;
 
-import org.springframework.beans.factory.annotation.Value;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import br.com.vini.vinifood.annotation.TipoDoNotificador;
@@ -12,13 +12,11 @@ import br.com.vini.vinifood.modelo.Cliente;
 @TipoDoNotificador(NivelUrgencia.NORMAL)
 public class NotificadorEmail implements Notificador {
 	
+	@Autowired
+	private NotificadorProperties properties;
+	
 	private boolean caixaAlta;
 	private String hostServidorSmtp = "smtp.vini.com.br";
-	
-	@Value("${notificador.email.host-servidor}")
-	private String host;
-	@Value("${notificador.email.porta-servidor}")
-	private Integer port;
 	
 	public NotificadorEmail() {
 	}
@@ -29,8 +27,8 @@ public class NotificadorEmail implements Notificador {
 			mensagem = mensagem.toUpperCase();
 		}
 		
-		System.out.println("HOST: " +this.host);
-		System.out.println("PORTA: " +this.port);
+		System.out.println("HOST: " +this.properties.getHostServidor());
+		System.out.println("PORTA: " +this.properties.getPortaServidor());
 
 		
 		System.out.printf("Notificando %s através do e-mail %s usando SMTP: %s: %s\n", 
