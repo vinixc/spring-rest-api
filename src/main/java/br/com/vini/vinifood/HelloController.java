@@ -4,7 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import br.com.vini.vinifood.modelo.Cliente;
+import br.com.vini.vinifood.domain.model.Cliente;
 import br.com.vini.vinifood.service.AtivacaoClienteService;
 
 @Controller

@@ -4,8 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Component;
 
+import br.com.vini.vinifood.domain.model.Cliente;
 import br.com.vini.vinifood.event.ClienteAtivadoEvent;
-import br.com.vini.vinifood.modelo.Cliente;
 
 @Component
 public class AtivacaoClienteService {

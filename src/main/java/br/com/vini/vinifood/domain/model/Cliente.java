@@ -1,4 +1,4 @@
-package br.com.vini.vinifood.modelo;
+package br.com.vini.vinifood.domain.model;
 
 public class Cliente {
 	

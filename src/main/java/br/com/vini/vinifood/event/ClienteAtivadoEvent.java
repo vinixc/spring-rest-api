@@ -1,6 +1,6 @@
 package br.com.vini.vinifood.event;
 
-import br.com.vini.vinifood.modelo.Cliente;
+import br.com.vini.vinifood.domain.model.Cliente;
 
 public class ClienteAtivadoEvent {
 	

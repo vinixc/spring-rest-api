@@ -4,8 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import br.com.vini.vinifood.annotation.TipoDoNotificador;
+import br.com.vini.vinifood.domain.model.Cliente;
 import br.com.vini.vinifood.enums.NivelUrgencia;
-import br.com.vini.vinifood.modelo.Cliente;
 
 @Component
 //@Profile("prod")
