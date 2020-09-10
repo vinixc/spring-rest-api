@@ -8,6 +8,8 @@ import org.springframework.context.ApplicationContext;
 
 import br.com.vini.vinifood.VinifoodApiApplication;
 import br.com.vini.vinifood.domain.model.Cozinha;
+import br.com.vini.vinifood.domain.repository.CozinhaRepository;
+import br.com.vini.vinifood.infrastructure.repository.CozinhaRepositoryImpl;
 
 public class InclusaoCozinhaMain {
 	
@@ -18,7 +20,7 @@ public class InclusaoCozinhaMain {
 				.run(args);
 		
 		
-		CadastroCozinha cadastroCozinha = application.getBean(CadastroCozinha.class);
+		CozinhaRepository cozinhaRepository = application.getBean(CozinhaRepositoryImpl.class);
 		
 		Cozinha cozinha1 = new Cozinha();
 		cozinha1.setNome("Brasileira");
@@ -26,10 +28,10 @@ public class InclusaoCozinhaMain {
 		Cozinha cozinha2 = new Cozinha();
 		cozinha2.setNome("Japonesa");
 		
-		cadastroCozinha.adicionar(cozinha1);
-		cadastroCozinha.adicionar(cozinha2);
+		cozinhaRepository.salvar(cozinha1);
+		cozinhaRepository.salvar(cozinha2);
 		
-		List<Cozinha> listar = cadastroCozinha.listar();
+		List<Cozinha> listar = cozinhaRepository.listar();
 		listar.forEach(System.out::println);
 	}
 
