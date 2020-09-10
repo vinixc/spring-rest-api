@@ -66,4 +66,9 @@ public class Cozinha implements Serializable{
 			return false;
 		return true;
 	}
+
+	@Override
+	public String toString() {
+		return "Cozinha [id=" + id + ", nome=" + nome + "]";
+	}
 }
